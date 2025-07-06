@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Signup</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, white, #81bac9);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Signup Container */
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            width: 35%;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            width: 80%;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            outline: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff;
+            box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Animated Button */
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        /* Error Message */
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Login Link */
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Signup</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form action="{{ url_for('signup_route') }}" method="post">
+            <label for="username">👤 Username:</label>
+            <input type="text" name="username" id="username" required>
+
+            <label for="password">🔑 Password:</label>
+            <input type="password" name="password" id="password" required>
+
+            <label for="confirm_password">🔒 Confirm Password:</label>
+            <input type="password" name="confirm_password" id="confirm_password" required>
+
+            <button type="submit">🚀 Signup</button>
+        </form>
+        <a href="{{ url_for('login_route') }}">🔑 Login</a>
+
+    </div>
+</body>
+</html>

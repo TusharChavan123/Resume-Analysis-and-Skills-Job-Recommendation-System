@@ -1,0 +1,5 @@
+python
+machine learning
+deep learning
+sql
+java
